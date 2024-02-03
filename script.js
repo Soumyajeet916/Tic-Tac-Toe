@@ -62,7 +62,7 @@ let currentPlayer = 'X';
                 resetGame();
             } else if (checkTie()) {
                 alert('It\'s a tie!');
-                resetGame();
+               resetGame();
             } else {
                 currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
             }
