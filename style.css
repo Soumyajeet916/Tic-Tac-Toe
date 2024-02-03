@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Sixtyfour&display=swap');
+*{
+    margin:0;
+    padding: 0;
+    font-family: 'Sixtyfour', sans-serif;
+}
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: rgb(60, 68, 66);
+  }
+  h1{
+    color: aqua;
+    padding: 40px;
+  }
+  .board {
+    display: inline-block;
+  }
+  .row {
+    clear: both;
+    background-color: aqua;
+  }
+  .cell {
+    width: 150px;
+    height: 150px;
+    border: 5px solid black;
+    font-size: 1rem;
+    line-height: 100px;
+    float: left;
+    cursor: pointer;
+    background-color: rgb(39, 201, 201);
+  }
+  .cell:hover{
+    background-color: aquamarine;
+  }
