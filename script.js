@@ -1,4 +1,8 @@
 let currentPlayer = 'X';
+let music_x = new Audio("./assets/Music-X.mp3")
+let music_o = new Audio("./assets/Music-O.mp3")
+let music= new Audio("./assets/Music.mp3")
+music.play();
     let board = [
         ['', '', ''],
         ['', '', ''],
@@ -54,17 +58,24 @@ let currentPlayer = 'X';
         }
   }
       function placeMark(row, col) {
+        music.play();
         if (board[row][col] === '') {
             board[row][col] = currentPlayer;
+            if(currentPlayer ==='X' ){
+                music_x.play();
+            }
+            else{
+                music_o.play();
+            }
             document.getElementById(`c-${row}${col}`).innerText = currentPlayer;
             if (checkWin()) {
                 alert(`${currentPlayer} wins!`);
-                resetGame();
+                //resetGame();
             } else if (checkTie()) {
                 alert('It\'s a tie!');
-               resetGame();
+               //resetGame();
             } else {
-                currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+                currentPlayer=currentPlayer==='X'?'O':'X';
             }
         }
     }
