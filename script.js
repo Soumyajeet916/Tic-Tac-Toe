@@ -4,8 +4,7 @@ let music_o = new Audio("./assets/Music-O.mp3")
 let music= new Audio("./assets/Music.mp3")
 let reset=document.getElementById("reset-btn");
 let volume=document.getElementById("volume-btn")
-let isPlaying=true;
-music.play();
+let isPlaying=false;
     let board = [
         ['', '', ''],
         ['', '', ''],
@@ -67,18 +66,15 @@ music.play();
 volume.addEventListener('click',()=>{
     if (isPlaying) {
         music.pause();
-        volume.textContent = "./assets/play.svg";
         isPlaying=false;
     } 
     else {
         music.play();
-        volume.textContent = "./assets/pause.svg";
         isPlaying=true;
     }
     
 })
       function placeMark(row, col) {
-        music.play();
         if (board[row][col] === '') {
             board[row][col] = currentPlayer;
             if(currentPlayer ==='X' ){
