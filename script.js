@@ -2,6 +2,9 @@ let currentPlayer = 'X';
 let music_x = new Audio("./assets/Music-X.mp3")
 let music_o = new Audio("./assets/Music-O.mp3")
 let music= new Audio("./assets/Music.mp3")
+let reset=document.getElementById("reset-btn");
+let volume=document.getElementById("volume-btn")
+let isPlaying=true;
 music.play();
     let board = [
         ['', '', ''],
@@ -57,6 +60,23 @@ music.play();
             }
         }
   }
+  reset.addEventListener('click',()=>{
+    resetGame();
+  }
+)
+volume.addEventListener('click',()=>{
+    if (isPlaying) {
+        music.pause();
+        volume.textContent = "./assets/play.svg";
+        isPlaying=false;
+    } 
+    else {
+        music.play();
+        volume.textContent = "./assets/pause.svg";
+        isPlaying=true;
+    }
+    
+})
       function placeMark(row, col) {
         music.play();
         if (board[row][col] === '') {
@@ -70,10 +90,10 @@ music.play();
             document.getElementById(`c-${row}${col}`).innerText = currentPlayer;
             if (checkWin()) {
                 alert(`${currentPlayer} wins!`);
-                //resetGame();
+                resetGame();
             } else if (checkTie()) {
                 alert('It\'s a tie!');
-               //resetGame();
+                resetGame();
             } else {
                 currentPlayer=currentPlayer==='X'?'O':'X';
             }
